@@ -7,4 +7,4 @@
 
 
 # B.面试资料
-- [1.android和java的一些概念](https://github.com/Dozen729/Share/file/Android3.0.pdf)
+- [1.android和java的一些概念](https://github.com/Dozen729/Share/blob/master/file/Android3.0.pdf)
