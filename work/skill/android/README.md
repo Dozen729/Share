@@ -6,3 +6,5 @@
 - [3.圆形头像](https://github.com/ai2101039/YLCircleImageView)
 
 
+# B.面试资料
+- [1.android和java的一些概念](https://github.com/Dozen729/Share/file/Android3.0.pdf)
