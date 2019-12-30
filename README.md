@@ -7,7 +7,7 @@
 
 2、再通过git commit -m "注释内容"把项目提交到仓库"；
 
-3、在Github上设置好SSH密钥后，新建一个远程仓库，通过git remote add origin https://github.com/Dozen729/W...（这里为你的git项目的地址）；
+3、在Github上设置好SSH密钥后，新建一个远程仓库，通过git remote add origin https://github.com/Dozen729 （这里为你的git项目的地址）；
 
 4、最后通过git push -u origin master把本地仓库的项目推送到远程仓库（也就是Github）上；
 
@@ -16,7 +16,7 @@
 5、此时执行第5点命令可能会报如下错误：
 ```
 ! [rejected] master -> master (fetch first)
-error: failed to push some refs to 'https://github.com/shut-up/re...'
+error: failed to push some refs to 'https://github.com/Dozen729/K...'
 hint: Updates were rejected because the remote contains work that you do
 hint: not have locally. This is usually caused by another repository pushing
 hint: to the same ref. You may want to first integrate the remote changes
