@@ -1,0 +1,138 @@
+
+time:2019.11.15
+......................................................................................................
+登录个人服务器：ssh your_name@192.168.10.230
+登录个人服务器：ssh your_name@192.168.10.230
+登录个人服务器：ssh your_name@192.168.10.230
+
+(1) mkdir -p ~/.ssh 
+(2) ssh-keygen -f ~/.ssh/your_name 
+注：如果该步骤提示输入密码，跳过即可
+
+(3) ls ~/.ssh/
+  your_name.pub    your_name
+
+(4) vi ~/.ssh/config 
+host git
+user git
+hostname 192.168.10.231
+port 22
+identityfile path/.ssh/your_name //通过230服务器终端执行pwd来获取path的内容(路径)
+        
+(5) 将your_name.pub发送给管理员
+(6) ssh git
+
+......................................................................................................
+192.168.10.230编译服务器:
+重要网址:
+	1.http://192.168.10.230
+	2.http://192.168.10.230/software/v2.0软件手册.pdf  //项目开发手册
+	3.http://192.168.10.230/tmp/6ubantu/  		//ubantu系统下载
+
+重要路径:
+	1.cd /software-three/hugo/hugo   //一些重要资料
+	2.cd /var/www                    //192.168.10.230网址显示内容操作目录
+
+重要项目：
+	1.git clone git:gitolite-admin                //下载git服务器项目
+
+重要操作:
+	1.ssh git //查看项目
+	2.git log,git show,git branch -a,git push,git pull,git checkout -f,git tag -l,git merge branchname,git checkout branchname
+	  git commit,git add *,git log -p,git log --oneline，git diff,git status  //git常用操作
+	3.sudo passwd username     //修改用户密码
+	4.df -h		//查看服务器硬盘状态
+	5.du -skh filename //查看文件夹所占大小
+	6.sudo sudoedit /etc/sudoers  //为用户增加sudo权限的文件
+	7.ssh username@192.168.10.230  //本地电脑终端登录230服务器
+	8.ftp 192.168.10.231    //230服务器登录ftp服务器
+	9.grep "filename" . -nr //当前目录查看所有文件内容是否存在(filename)
+	10.find . -name "*filename*"  //当前目录查看所有文件是否有文件的名字包含(filename)
+	11.ssh git@192.168.10.231  //登录git服务器增加git项目
+	12.ssh cloudy@192.168.10.230  //用户cloudy中有许多资料可查询	
+	
+......................................................................................................
+192.168.10.231代码服务器:
+重要网址:
+	1.http://192.168.10.231/document/how-to-git-repository.html	//项目下载和编译方法
+	2.http://192.168.10.231/gitweb/    //git项目log查看
+	3.ftp://192.168.10.231/  	//ftp项目资源下载
+	
+重要路径:
+	1.cd /var/www //192.168.10.231网址显示内容操作目录
+	2.cd /git/projects  //git项目目录，需要登录git用户来操作
+
+重要操作:
+	1.sudo sudoedit /etc/sudoers  //为用户增加sudo权限的文件
+	2.git useradd name	//增加git用户
+	3.git init --bare 	//新建git项目
+
+......................................................................................................
+demo用户增加使用权限
+1.管理员登录192.168.10.230服务器
+2.执行(usermod -a -G groupDemo 用户名)
+......................................................................................................
+linux重要操作:
+	1.sudo sudoedit file //修改sudo文件使用
+	2.adduser --home path username   //增加一个用户
+	3.cat /etc/group     //查看组
+	4.cat /etc/passwd    //查看用户及目录路径
+	5.gedit filename     //电脑打开文本等文件
+	6.nautilus .         //打开当前目录文件管理器
+	7.mount  目标地址  使用地址             //挂载U盘等到指定地方
+	8.ln -s 目标地址  使用地址  //链接文件夹到使用地址，方便使用
+	9.history            //查看历史
+	10.sudo chmod 777 filename    //修改文件或文件夹权限
+	11.sudo chown username:groupname filename //修改文件用户和组
+	12.ll,ls,cp,mv,mkdir,touch filename,rm,cd,cd -,cd ..,cd /,cat filename,vi filename
+	13.cp /etc/vim/vimrc ~/.vimrc  //解决vi编辑器方向键不可用
+	14.sudo lsof | grep demo   //查看用户
+	15.sudo kill -9 17825      //终止17825的pid
+	16.sudo minicom    //电脑连接设备串口操作
+	17.adb shell       //进入连接电脑的安卓终端
+	18.adb push,adb pull  	//push推送文件到安卓设备，pull从安卓设备拉取文件
+	19.adb shell settings put global enable_freeform_support 1 	//打开安卓多窗口模式
+	20.sudo usermod -d /software-two/demo demo  	//修改用户demo的路径为(/software-two/demo)
+	21.adb devices 		//查看安卓设备是否连接
+	22.tar -cvzf filename.tar.gz file 	//压缩文件
+	23.tar -xzvf file.tar.gz	//解压文件
+	24.sudo apt-get install fcitx-table-wubi 	//五笔输入法
+	25.chrome安装
+		sudo wget http://www.linuxidc.com/files/repo/google-chrome.list -P /etc/apt/sources.list.d/
+		wget -q -O - https://dl.google.com/linux/linux_signing_key.pub  | sudo apt-key add -
+		sudo apt-get update
+		sudo apt-get install google-chrome-stable
+		/usr/bin/google-chrome		或	/usr/bin/google-chrome --no -sandbox
+	26.sudo fdisk /dev/sdb    //格式化U盘
+	27.sudo mkfs.ext3 /dev/sdb   //格式化U盘为ext3格式
+	28.sudo dd if=MP700的镜像文件   of=/dev/sdb    //将镜像烧进U盘
+	29.sudo dd if=/dev/sdb of=输出文件的命名.img  bs=3M count=40  //将U盘的系统做成镜像导出
+	30.cd /proc 	//查看系统信息
+	31.groupadd groupname 	//添加一个组
+	32.usermod -a -G groupname username 	//添加用户到组
+	33.ls |wc -w 	//查看当前目录下有多少个文件及文件夹需在终端输入
+	34.ls *.jpg | xargs -n1 -I {} cp {} /data/images 	//复制所有图片文件到(/data/images)目录下
+	35.scp uptest.txt hugo@192.168.10.230:/software-three/hugo 		//复制文件(uptest.txt)到服务器(hugo@192.168.10.230)目录(/software-three/hugo)下
+	36.chgrp -c username:usergroup file/ -R 	//修改file目录及下级所有文件的所属用户和组
+	37.adb tcpip 5555,adb connect ip:5555 		//网络连接安卓设备
+	38.grep name . -r	//当前目录及子目录下查找包含name的所有内容
+	39.s/vivian/sky/g 	//替换当前行所有vivian为sky
+	40.%s/vivian/sky/g 	//替换每一行中所有vivian为sky
+	41..repo/repo/repo forall -p -c git log --since="2019-07-29" --until="2020-03-03" 	//查看since到until时间内提交日记
+	42..repo/repo/repo forall -c "pwd;git pull" //同步远程代码到本地仓库
+	43.sudo apt-get install pinta 		//画图工具
+	44.sudo apt install scrot 	//截图工具
+	45.apt list | grep python	//查找安装列表
+	46.apt list --installed | grep python	//查找列表已安装
+	47.sudo apt-get remove --purge python	//卸载已安装软件python
+	48.rename 's/\.sh/\.txt/' *.sh			//修改文件后缀	
+	49.cd /proc		//系统信息
+
+
+
+
+
+
+
+
+
